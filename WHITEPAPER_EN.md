@@ -501,7 +501,7 @@ Agent 5.0 provides the open-source community with a **controllable, learnable, a
 
 **Project Repository**: `https://github.com/agent5/agent_core`
 
-**Contact**: agent5-core@example.com
+**Contact**: cunlixiaolong@outlook.com
 
 ---
 
