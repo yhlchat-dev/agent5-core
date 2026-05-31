@@ -499,7 +499,7 @@ Agent 5.0 provides the open-source community with a **controllable, learnable, a
 
 ---
 
-**Project Repository**: `https://github.com/agent5/agent_core`
+**Project Repository**: `(https://github.com/yhlchat-dev/agent5-core)`
 
 **Contact**: cunlixiaolong@outlook.com
 
