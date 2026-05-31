@@ -19,10 +19,10 @@ Agent 5.0 is a cognitive operating system for multi‑agent collaboration, built
 
 ## Funding Application
 
-We are applying for €45,000 from NLnet (NGI Zero Commons Fund) to complete the core functionalities, eliminate technical debt, and deliver a production‑grade open‑source kernel under AGPLv3. The detailed technical whitepaper is available in this repository.
+We are applying for €45,000 from NLnet (NGI Zero Commons Fund) to complete the core functionalities, eliminate technical debt, and deliver a production‑grade open‑source kernel under **MIT license**. The detailed technical whitepaper is available in this repository.
 
 - [Full Technical Whitepaper (WHITEPAPER_EN.md)](WHITEPAPER_EN.md)
 
 ## License
 
-AGPL v3 (to be applied to all code produced in the funded phase).
+MIT
