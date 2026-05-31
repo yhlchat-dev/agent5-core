@@ -17,10 +17,6 @@ Agent 5.0 is a cognitive operating system for multi‑agent collaboration, built
 - Production‑ready prototype already runs safety‑audit closed loop (see [DataChain examples](docs/golden_chains/)).
 - Outstanding technical debt (195 nested functions, 112 I/O mixed, 121 hardcoded constants) will be fixed during the funded phase.
 
-## Funding Application
-
-We are applying for €45,000 from NLnet (NGI Zero Commons Fund) to complete the core functionalities, eliminate technical debt, and deliver a production‑grade open‑source kernel under **MIT license**. The detailed technical whitepaper is available in this repository.
-
 - [Full Technical Whitepaper (WHITEPAPER_EN.md)](WHITEPAPER_EN.md)
 
 ## License
