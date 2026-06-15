@@ -1,0 +1,119 @@
+# ========== 全局配置 ==========
+global:
+  data_dir: "data"
+  log_dir: "data/logs"
+  log_level: "INFO"
+  log_console: true
+  log_file: true
+  max_workers: 8
+
+  limits:
+    explore_timeout: 120
+    explore_tokens: 2000
+    memory_max_size: 10000
+    timeline_max_size: 1000
+    max_retries: 3
+    task_timeout: 120
+
+  decay:
+    memory_half_life_days: 30
+    strategy_decay: 0.95
+
+  scheduling:
+    learning_cron_interval: 60
+    memory_forget_interval: 300
+    execution_controller:
+      interval: 0.5
+      priority: 1
+    memory_tick:
+      interval: 5
+      priority: 5
+    safety:
+      interval: 3
+      priority: 2
+    plan_executor:
+      interval: 1
+      priority: 3
+
+  paths:
+    capsules_dir: "data/capsules"
+    memory_dir: "data/memory"
+    training_dir: "data/training"
+    safety_audit_log: "data/safety_audit.log.jsonl"
+    data_chain_dir: "data/capsules/data_chain"
+    search_experience_db: "data/capsules/search_experience.db"
+    skill_imprint_db: "data/capsules/skill_imprint.db"
+    error_db: "data/capsules/error.db"
+    principle_imprint_db: "data/capsules/principle_imprint.db"
+    llm_skill_db: "data/capsules/llm_skill.db"
+    memory_events_db: "data/memory/events.db"
+    short_term_db: "data/memory/short_term.db"
+    chroma_dir: "data/memory/chroma"
+    rl_dataset: "data/training/rl_dataset.json"
+    sft_dataset: "data/training/sft_dataset.json"
+
+# ========== 模块配置 ==========
+modules:
+  - name: browser_controller
+    version: "1.0.0"
+    path: core.perception.browser.browser_controller.BrowserController
+    capabilities: [browser_control, web_navigation, dom_parsing]
+    resource_cost: {cpu: 0.1, memory: 50}
+    auto_load_policy: on_demand
+    permissions: [network]
+
+  - name: desktop_controller
+    version: "1.0.0"
+    path: core.perception.desktop.desktop_controller.DesktopController
+    capabilities: [desktop_control, screen_capture, window_management]
+    resource_cost: {cpu: 0.2, memory: 100}
+    auto_load_policy: on_demand
+    permissions: [desktop]
+
+  - name: rag_system
+    version: "0.5.0"
+    path: core.rag_system.RAGSystem
+    capabilities: [knowledge_retrieval, document_search]
+    resource_cost: {cpu: 0.3, memory: 200}
+    auto_load_policy: on_demand
+    permissions: [filesystem]
+
+  - name: learning_loop
+    version: "1.0.0"
+    path: core.learning.learning_loop.LearningLoop
+    capabilities: [learning, feedback_analysis, pattern_extraction]
+    resource_cost: {cpu: 0.15, memory: 80}
+    auto_load_policy: always
+    permissions: []
+
+  - name: curiosity_engine
+    version: "1.0.0"
+    path: core.cognition.curiosity_engine_v3.CuriosityEngineV3
+    capabilities: [curiosity, exploration, novelty_detection]
+    resource_cost: {cpu: 0.1, memory: 60}
+    auto_load_policy: on_demand
+    permissions: []
+
+  - name: perception_fusion
+    version: "1.0.0"
+    path: core.perception.fusion.perception_fusion.PerceptionFusion
+    capabilities: [perception_fusion, environment_state, multi_source_fusion]
+    resource_cost: {cpu: 0.1, memory: 40}
+    auto_load_policy: always
+    permissions: []
+
+  - name: strategy_evolution
+    version: "1.0.0"
+    path: core.evolution.strategy_evolution.StrategyEvolution
+    capabilities: [strategy_evolution, strategy_mutation, strategy_reinforcement]
+    resource_cost: {cpu: 0.2, memory: 80}
+    auto_load_policy: on_demand
+    permissions: []
+
+  - name: coordinator
+    version: "1.0.0"
+    path: core.orchestration.coordinator.Coordinator
+    capabilities: [task_coordination, task_dispatch, load_balancing]
+    resource_cost: {cpu: 0.1, memory: 50}
+    auto_load_policy: always
+    permissions: []

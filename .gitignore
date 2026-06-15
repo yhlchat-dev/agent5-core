@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data & Logs
+data/logs/
+data/memory/
+data/capsules/
+data/backups/
+data/safety_audit.log.jsonl
+
+# Secrets - NEVER commit these
+.env
+*.secret
+credentials.json
+secrets.yaml
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Test / Cache
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# PyInstaller
+*.spec

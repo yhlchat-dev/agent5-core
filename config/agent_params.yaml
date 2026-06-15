@@ -1,0 +1,64 @@
+# Agent 5.0 核心参数配置
+# 优先级：环境变量 > YAML文件 > 代码默认值
+# 环境变量命名规则：点分隔→下划线+全大写，如 agent.worker.busy_timeout → AGENT_WORKER_BUSY_TIMEOUT
+
+agent:
+  worker:
+    busy_timeout: 180
+    idle_timeout: 300
+    zombie_threshold: 90
+  max_consecutive_errors: 10
+
+curiosity:
+  explore_timeout: 120
+  explore_tokens: 2000
+  gap_threshold: 0.03
+  dynamic_curiosity_threshold: 0.2
+
+evolution:
+  merge_similarity: 0.9
+  split_length: 2000
+  delete_quality: 50
+
+scheduler:
+  idle_threshold: 300
+  execution_controller_interval: 0.5
+  memory_tick_interval: 5
+  safety_tick_interval: 3
+  executor_tick_interval: 1
+
+llm:
+  rate_limiter_timeout: 30.0
+  call_timeout: 90.0
+  call_with_history_timeout: 120.0
+  max_requests_per_minute: 60
+  retry_count: 2
+  retry_delays:
+    - 1.0
+    - 3.0
+
+safety:
+  risk_threshold: 0.7
+  high_load_threshold: 0.8
+  low_load_threshold: 0.3
+
+memory:
+  migration_temp_to_short_interval: 21600
+  migration_short_to_long_interval: 86400
+  migration_waste_cleanup_interval: 86400
+  importance_threshold: 0.35
+  os_ttl: 300
+  load_check_interval: 5.0
+
+action:
+  timeout: 5
+  max_retry: 2
+
+decision:
+  adaptive_threshold: 0.5
+  adaptive_threshold_high: 0.7
+  adaptive_threshold_low: 0.4
+  drift_base_threshold: 0.5
+
+cache:
+  vision_skill_ttl: 60

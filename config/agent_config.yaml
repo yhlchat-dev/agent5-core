@@ -1,0 +1,90 @@
+agent:
+  name: "Agent_5.0"
+  version: "5.0.0"
+  max_workers: 30
+  worker_timeout: 120
+
+cognitive_trace:
+  persist: true
+
+llm:
+  provider: "deepseek"
+  api_key: "YOUR_API_KEY"
+  base_url: "https://api.deepseek.com/v1"
+  model: "deepseek-chat"
+  max_tokens: 2000
+  temperature: 0.3
+  retry_count: 2
+  retry_interval: 2.0
+  default_max_tokens: 1000
+  default_temperature: 0.1
+
+constants:
+  sleep:
+    default: 0.1
+  timeout:
+    default: 60
+    thread_join: 5
+  retry:
+    max_retries: 2
+    retry_count: 3
+
+memory:
+  short_term:
+    db_path: "data/memory/short_term.db"
+    max_items: 1000
+    ttl_default: 3600
+  long_term:
+    db_path: "data/memory/chroma"
+    collection_name: "long_term_memory"
+    embedding_model: "all-MiniLM-L6-v2"
+
+capsules:
+  exclusive:
+    db_path: "data/capsules/exclusive.db"
+    max_size: 500
+  error:
+    db_path: "data/capsules/error.db"
+    max_size: 300
+  curiosity:
+    db_path: "data/capsules/curiosity.db"
+    max_size: 200
+  skill_cache:
+    db_path: "data/capsules/skill_cache.db"
+    max_size: 1000
+
+perception:
+  window_monitor:
+    enabled: true
+    interval: 1.0
+  clipboard:
+    enabled: true
+    max_history: 100
+  process_monitor:
+    enabled: true
+    interval: 2.0
+  dhash:
+    enabled: true
+    hash_size: 8
+
+curiosity:
+  enabled: true
+  update_interval: 5.0
+  exploration_rate: 0.3
+
+safety:
+  emergency_stop_enabled: true
+  blacklist_check_enabled: true
+  forbidden_areas_config: "config/forbidden_areas.yaml"
+
+logging:
+  level: "DEBUG"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "data/logs/agent.log"
+  max_size: 10485760
+  backup_count: 5
+
+hotkeys:
+  emergency_stop: "ctrl+alt+shift+q"
+  pause: "ctrl+alt+shift+p"
+  resume: "ctrl+alt+shift+r"
