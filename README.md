@@ -1,5 +1,7 @@
 # Agent 5.0
 
+The greatest impact of AI is not that it writes code for humans. It is that it enables individuals to participate in the design, validation, and evolution of complex intelligent systems—work that previously required entire teams with specialized expertise.
+
 ## Local-first Cognitive Runtime for Auditable Autonomous Agents
 
 Agent 5.0 is an open-source runtime for building local-first autonomous agents with deterministic decision routing, auditable memory, and safety-controlled execution.
