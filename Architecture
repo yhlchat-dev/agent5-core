@@ -1,0 +1,482 @@
+# docs/architecture/Agent5_Architecture_2026.md
+# Agent 5.0 Official Architecture Whitepaper
+Version 1.0 | June 2026
+Target Audience: FUTO Foundation, NLnet Foundation, Sentient Foundation, Open Source AI Researchers, GitHub Contributors, Research Investors
+
+## Preface
+This document serves as the authoritative architectural reference for Agent 5.0, an open-source autonomous cognitive operating system. It excludes product marketing language, exaggerated claims, and unsubstantiated performance descriptions. All content strictly adheres to the finalized core architecture scope of Agent 5.0; no new runtime modules, functional extensions or experimental logic are added.
+
+Distinction markers used throughout:
+- ✅ Implemented: Fully integrated into main branch
+- 🟡 In Progress: Active development, partial core logic validated
+- 🔵 Research Direction: Long-term planned architecture, not yet engineered
+
+---
+
+# 1 Project Vision
+## 1.1 Core Positioning
+Traditional LLM Agent stacks are modular glue code built atop large language models, designed for short-turn conversational tasks. Their inherent limitations:
+1. Disconnected memory, reasoning, planning and safety modules with unregulated cross-module calls
+2. Static prompt-based value alignment without persistent runtime identity constraints
+3. Lack of unified scheduling, lifecycle management and event audit infrastructure
+4. No native support for long-duration persistent autonomous cognition
+
+Agent 5.0 abandons the chatbot-centric design paradigm. Its core positioning:
+> An Autonomous Cognitive Operating System, built for persistent, self-governed local intelligence, not conversational interfaces.
+
+## 1.2 Ultimate Objective
+The project’s long-term engineering target is Persistent Autonomous Intelligence:
+- Stable, unchanging agent identity across long-term task execution
+- Decoupled cognitive subsystems with standardized event-driven communication
+- Native runtime safety governance independent of LLM prompt injection
+- Full local-first deployment without mandatory cloud dependency
+- Continuous incremental cognitive evolution without forced large model retraining
+
+## 1.3 Core Design Principles
+1. Separation of Concerns: Split cognition, memory, motivation and runtime coordination into independent OS subsystems
+2. Event-Driven Isolation: Eliminate direct cross-module function calls via unified event bus
+3. Persistent Identity Isolation: Strict separation between agent identity anchor and user identity anchor
+4. Constraint-First Governance: Replace static text prompts with vector-space constitutional runtime constraints
+5. Local-First All Layers: All core cognitive logic, memory storage and governance runnable on consumer end hardware
+
+---
+
+# 2 Evolution Timeline
+## 2.1 Full Architecture Iteration Flow
+```mermaid
+flowchart LR
+    A[Agent 1.0: Basic Workflow Agent] --> B[Agent 2.0: Isolated Memory Agent]
+    B --> C[Agent 3.0: Primitive Runtime Scheduler]
+    C --> D[Governor Static Rule Governance Layer]
+    D --> E[Text-based Static AI Constitution]
+    E --> F[Independent Motivation Subsystem]
+    F --> G[Dedicated Memory OS Abstraction Layer]
+    G --> H[Independent Cognitive OS Reasoning Layer]
+    H --> I[Runtime Coordination OS Core Kernel]
+    I --> J[Unified Runtime Event Kernel Bus]
+    J --> K[Meta Cognitive Database Storage Abstraction]
+    K --> L[High-Dimensional Vector Constitution Constraint Space]
+    L --> M[Dual Isolated Identity Anchor Layer]
+    M --> N[Neural Cognitive Graph Storage Schema]
+    N --> O[Future Adaptive Cognitive Network Research Direction]
+```
+## 2.2 Iteration Core Logic Summary
+Each version refactors tight-coupled module stacks into standardized, decoupled operating system layers. Agent 5.0 completes the transition from "LLM wrapper agent" to full cognitive runtime OS architecture.
+
+---
+
+# 3 Overall Architecture
+## 3.1 Global System Topology Diagram
+```mermaid
+flowchart LR
+    subgraph External World
+        R[Reality Environment]
+    end
+    subgraph Perception Interface Layer
+        P[Perception Input Pipeline]
+    end
+    subgraph Runtime Core Layer
+        REK[Runtime Event Kernel]
+        RCOS[Runtime Coordination OS]
+    end
+    subgraph Three Independent Cognitive OS Subsystems
+        MOS[Motivation OS]
+        COS[Cognitive OS]
+        MEMOS[Memory OS]
+    end
+    subgraph Governance & Persistent Storage Layer
+        G[Governor Runtime Supervisor]
+        MACDB[(Meta Cognitive Database)]
+        IA[Identity Anchor Dual Layer]
+        VCS[Vector Constraint Space / AI Constitution]
+    end
+    subgraph Action Output Layer
+        ACT[Action Execution Pipeline]
+    end
+
+    %% Data Flow Loop
+    R --> P --> REK
+    REK --> RCOS
+    RCOS --> MOS & COS & MEMOS
+    MOS & COS & MEMOS --> G
+    G --> ACT --> R
+
+    %% Persistent Binding Dependencies
+    IA -. Persistent Binding .-> RCOS
+    VCS -. Runtime Constraint Injection .-> G
+    MACDB -. Long-Term Persistence .-> MOS & COS & MEMOS
+    G -. Enforce Vector Constraints .-> VCS
+```
+## 3.2 Global Architecture Explanation
+1. Closed-loop world interaction: Perception input → runtime event bus → cognitive subsystems → governed action output
+2. All cross-subsystem communication strictly routed through Runtime Event Kernel; zero direct cross-OS invocation
+3. Identity Anchor, Vector Constitution and Meta Cognitive Database exist as cross-cutting persistent layers, not task-specific modules
+4. Governor acts as centralized runtime supervisor to validate all cognitive outputs against vector constraint rules before action dispatch
+
+---
+
+# 4 Four Operating Systems
+## 4.1 Runtime Coordination OS (RCOS)
+Status: ✅ Implemented
+### Core Responsibilities
+- Global runtime task scheduling & resource allocation
+- Full subsystem lifecycle creation, pause, resume, termination
+- Global RuntimeState snapshot management
+- Service Locator unified component registration & discovery
+- Event bus routing coordination, audit log aggregation
+- Cross-subsystem runtime context isolation
+
+### Subsystem I/O & Lifecycle
+```mermaid
+flowchart LR
+    IN[Input: Runtime Events / Service Registration Requests] --> RCOS[Runtime Coordination OS]
+    subgraph Internal Logic
+        SCHED[Task Scheduler]
+        LC[Lifecycle Manager]
+        SL[Service Locator]
+        STATE[Runtime State Snapshot Engine]
+        AUDIT[Global Audit Collector]
+    end
+    RCOS --> OUT[Output: Standardized Event Dispatch / Subsystem Lifecycle Signals]
+    RCOS -. Dependency .-> Runtime Event Kernel
+```
+
+## 4.2 Cognitive OS (COS)
+Status: ✅ Implemented
+### Core Responsibilities
+- Long & short term goal decomposition & maintenance
+- Multi-step task planning, path searching, execution logic
+- Symbolic & vectorized reasoning engine
+- Meta-cognition: self-reflection over completed task trajectories
+- Decision generation for candidate action sequences
+
+### Subsystem I/O & Lifecycle
+```mermaid
+flowchart LR
+    IN[Input: Motivational Targets / Retrieved Memory Entries] --> COS[Cognitive OS]
+    subgraph Internal Logic
+        GOAL[Goal Stack Manager]
+        PLAN[Hierarchical Planner]
+        REASON[Multi-modal Reasoning Engine]
+        META[Meta-Cognition Reflector]
+        DECIDE[Candidate Decision Generator]
+    end
+    COS --> OUT[Output: Planned Decision Events]
+    COS -. Dependency .-> Meta Cognitive Database
+    COS -. Controlled By .-> Runtime Coordination OS
+```
+
+## 4.3 Memory OS (MEMOS)
+Status: ✅ Implemented
+### Core Responsibilities
+- Working memory short-term cache management
+- Episodic trajectory storage & retrieval
+- Semantic concept embedding indexing
+- Skill pattern library compression & matching
+- General knowledge graph maintenance
+- Memory entry incremental evolution & pruning
+
+### Subsystem I/O & Lifecycle
+```mermaid
+flowchart LR
+    IN[Input: Perception Events / Cognitive Reflection Logs] --> MEMOS[Memory OS]
+    subgraph Internal Logic
+        WM[Working Memory Cache]
+        EPI[Episodic Storage]
+        SEM[Semantic Indexer]
+        PAT[Pattern Matching Library]
+        EVO[Memory Evolution Pruner]
+    end
+    MEMOS --> OUT[Output: Query Memory Vector / Concept Events]
+    MEMOS -. Storage Backend .-> Meta Cognitive Database
+    MEMOS -. Controlled By .-> Runtime Coordination OS
+```
+
+## 4.4 Motivation OS (MOS)
+Status: ✅ Implemented
+### Core Responsibilities
+- Intrinsic motivational signal generation
+- Short & long term reward value calculation
+- Curiosity-driven exploration weight adjustment
+- Task persistence decay & recovery logic
+- Internal emotional state vector tracking
+- Runtime cognitive energy consumption management
+
+### Subsystem I/O & Lifecycle
+```mermaid
+flowchart LR
+    IN[Input: Memory Feedback / Action Outcome Signals] --> MOS[Motivation OS]
+    subgraph Internal Logic
+        REW[Reward Calculator]
+        CUR[Curiosity Weight Controller]
+        PERS[Task Persistence Engine]
+        EMOT[Internal State Vector Tracker]
+        ENER[Energy Budget Manager]
+    end
+    MOS --> OUT[Output: Motivational Target Events]
+    MOS -. Dependency .-> Identity Anchor Personality Vectors
+    MOS -. Controlled By .-> Runtime Coordination OS
+```
+
+---
+
+# 5 Runtime Event Kernel
+## 5.1 Design Rationale
+Traditional agent architectures use direct function calls between modules, introducing:
+- Unpredictable dependency chains hard to audit
+- No global replay capability for failure recovery
+- Unregulated cross-subsystem state leakage
+- Difficult parallel scheduling & resource isolation
+
+Runtime Event Kernel solves these via a standardized asynchronous event bus, enforcing message-passing as the only inter-subsystem communication protocol.
+
+## 5.2 Full Kernel Structure
+```mermaid
+flowchart LR
+    SUB[All OS Subsystems / Perception / Governor] --> INBOX[Event Inbox Router]
+    INBOX --> AUDIT[Event Audit Engine]
+    AUDIT --> STORE[Persistent Runtime Event Store]
+    STORE --> REPLAY[Offline Replay Controller]
+    AUDIT --> BUS[Unified Event Dispatch Bus]
+    BUS --> SUB
+```
+## 5.3 Core Capabilities
+1. Audit: Every event metadata, payload, timestamp and sender identity logged persistently
+2. Replay: Entire runtime execution trace can be replayed for debugging, fine-tuning cognitive logic
+3. Isolation: Subsystems only consume subscribed event types; no direct memory sharing
+4. Serialization: Uniform event schema compatible with local disk storage
+
+Status: 🟡 In Progress
+
+---
+
+# 6 Runtime State
+## 6.1 Core Component Distinction
+1. **RuntimeState**: Immutable snapshot container holding real-time global cognitive context
+    - Fields: Active Identity Vector, Current Goal Stack, Ongoing Plan, Reward Baseline, Motivation Energy, Governance Policy Timestamp, Execution History Cursor
+2. **SharedRuntimeContext**: Lightweight read-only metadata container passed alongside events, no mutable cognitive state
+3. **ServiceLocator**: Static compile-time registry mapping subsystem service IDs to runtime process handles, stateless
+
+## 6.2 Runtime State Snapshot Flow
+```mermaid
+flowchart LR
+    OS[Any Cognitive OS Subsystem] --> RCOS[Runtime Coordination OS]
+    RCOS --> SNAP[RuntimeState Snapshot Generator]
+    SNAP --> EVENT[Wrapped State Event]
+    EVENT --> REK[Runtime Event Kernel]
+    REK --> All[All subscribed subsystems receive read-only state snapshot]
+```
+## 6.2 Key Rule
+RuntimeState is read-only to all cognitive subsystems; only Runtime Coordination OS may generate updated snapshots after event processing completes.
+
+Status: ✅ Implemented
+
+---
+
+# 7 Identity Anchor
+## 7.1 Core Rule: Strict Dual Identity Isolation
+Agent Identity and User Identity exist in fully separate anchor layers with zero shared storage space. They only exchange data via standardized Runtime Contract events, no direct memory access.
+
+## 7.2 Agent Anchor Data Binding Graph
+```mermaid
+flowchart LR
+    AA[Agent Identity Anchor] --> PERS[Personality Base Vector]
+    AA --> VAL[Core Value Embeddings]
+    AA --> LTM[Agent Long-Term Memory Partition]
+    AA --> BEH[Default Behavioral Constraint Baseline]
+    AA --> RC[Runtime Contract Event Interface]
+```
+## 7.3 User Anchor Data Binding Graph
+```mermaid
+flowchart LR
+    UA[User Identity Anchor] --> PREF[User Preference Vectors]
+    UA --> HAB[User Habit Pattern Library]
+    UA --> INT[Historical Interaction Traces]
+    UA --> UPM[User Private Memory Partition]
+    UA --> RC[Runtime Contract Event Interface]
+```
+## 7.4 Communication Boundary
+All cross-identity data exchange must pass through validated Runtime Contract events filtered by Governor and Vector Constraint Space to prevent identity leakage or value conflict contamination.
+
+Status: 🟡 In Progress
+
+---
+
+# 8 AI Constitution
+## 8.1 Paradigm Shift Away From Static Prompts
+Legacy agent safety alignment uses static text prompts injected into LLM context windows, with critical flaws:
+- Volatile: Lost on context window overflow
+- Unquantifiable: No measurable constraint strength
+- Stateless: No persistent runtime enforcement layer
+
+Agent 5.0 redefines AI Constitution as a persistent runtime constraint layer, decoupled from LLM prompt input.
+
+## 8.2 Constitution Runtime Enforcement Flow
+```mermaid
+flowchart LR
+    CONST[AI Constitution Base Embedding] --> VEC[Vector Encoding Pipeline]
+    VEC --> VCS[Vector Constraint Space]
+    VCS --> G[Governor Supervisor]
+    G --> DEC[Candidate Cognitive Decisions]
+    DEC --> FILTER[Constraint Validation]
+    FILTER --> ACT[Approved Action Pipeline / Rejection Event]
+```
+## 8.2 Core Capabilities
+- Persistent storage bound to Agent Identity Anchor, retained across runtime restarts
+- Continuous constraint weighting adjustable via Motivation OS reward signals
+- All candidate decisions validated against constitution vectors before execution
+
+Status: 🟡 In Progress (Text constitution implemented, vector encoding pipeline under development)
+
+---
+
+# 9 Vector Constitution
+## 9.1 Limitations of Rule Lists
+Text rule lists are discrete, binary pass/fail checks unable to model continuous gradients of personality, ethics and long-term goals. High-dimensional vector space enables continuous weighted constraint mapping.
+
+## 9.2 Vector Space Encoded Domains
+All governance dimensions are embedded into unified high-dimensional vector space:
+1. Persistent agent personality traits
+2. Long-term core value alignment vectors
+3. Multi-layer ethical constraint gradients
+4. Dynamic situational behavioral limits
+5. User preference compatibility weighting
+6. Long-term memory bias correction terms
+
+## 9.3 Future Execution Stack Roadmap (Research Direction)
+Once fully engineered, all core cognitive compute layers will operate atop Vector Constitution space:
+1. Convolution pattern matching over constraint vectors
+2. Attention weight bias injection from constitutional embeddings
+3. 2D neural topology layers natively bounded by constitution constraints
+
+Status: 🔵 Research Direction
+
+---
+
+# 10 Meta Cognitive Database (MACDB)
+## 10.1 Storage Layer Hierarchy Diagram
+```mermaid
+flowchart LR
+    EPI[Episodic Trajectory Shards] --> SEM[Semantic Concept Index Tree]
+    SEM --> PAT[Compressed Pattern Library Nodes]
+    PAT --> KNOW[Global Knowledge Concept Graph]
+    KNOW --> META[Meta-Cognition Reflection Nodes]
+    META --> CONCEPT[Unified Concept Embedding Graph]
+    CONCEPT --> NEURAL[Neural Cognitive Graph Storage Layer (Future)]
+```
+## 10.2 Core Definition
+MACDB is not a simple key-value memory store. It is a tiered persistent cognitive database designed to retain all symbolic and vectorized cognitive artifacts generated across runtime sessions, serving as the exclusive data source for future neural evolution layers.
+
+## 10.3 Tier Responsibilities
+1. Episodic: Raw perception-action trajectory logs
+2. Semantic: Indexed abstract concept embeddings for fast lookup
+3. Pattern: Reusable action-situation compressed templates
+4. Concept Graph: Interconnected relational knowledge storage
+5. Neural Graph (Future): Dense low-dimensional feature representations for self-evolution
+
+Status: ✅ Implemented (Symbolic tiers complete; Neural Graph tier planned research)
+
+---
+
+# 11 Future Neural Evolution
+## 11.1 Definition Marker
+All content within this chapter is marked 🔵 Research Direction, not implemented in current Agent 5.0 main branch. This describes long-term architectural evolution targets only.
+
+## 11.2 Full Evolution Pipeline Flow
+```mermaid
+flowchart LR
+    MACDB[Meta Cognitive Database Concept Graph] --> FEAT[Feature Compression Layer]
+    FEAT --> CONFOLD[Concept Folding Autoencoder]
+    CONFOLD --> PATFOLD[Pattern Folding Topology Encoder]
+    PATFOLD --> IDEMB[Identity Anchor Embedding Fusion]
+    IDEMB --> CONSTEMB[Vector Constitution Embedding Bound]
+    CONSTEMB --> NEURALGRAPH[Neural Cognitive Graph]
+    NEURALGRAPH --> TOPO[2D Convolutional Cognitive CNN]
+    TOPO --> ADAPT[Adaptive Cognitive Network]
+```
+## 11.3 Core Planned Components
+1. Feature Compression: Reduce high-dimensional concept vectors into compact neural features
+2. Concept / Pattern Folding: Autoencoder layers to abstract repeated cognitive logic without model retraining
+3. Identity & Constitution Embedding Fusion: Bind governance and identity vectors directly into neural topology weights
+4. 2D Cognitive CNN: Spatial neural topology for parallel pattern reasoning
+5. Adaptive Cognitive Network: Self-modifying neural graph structure evolving from runtime experience without LLM fine-tuning
+
+## 11.4 Key Research Thesis
+Future cognitive capability growth will rely on internal neural structure evolution, not incremental increases in base LLM parameter count.
+
+Status: 🔵 Research Direction
+
+---
+
+# 12 Why Local-First Autonomous Cognitive Intelligence
+Agent 5.0 prioritizes full local deployment as a core architectural requirement, with six foundational rationales:
+1. **Data Privacy**: All memory, identity and constitutional vectors never leave user hardware by default
+2. **Digital Ownership**: Full agent cognitive state, identity and knowledge belong exclusively to the end user
+3. **Offline Operation**: Complete runtime functionality without persistent internet connectivity
+4. **Long-Term Consistency**: Cloud service interruptions do not break persistent agent identity or memory
+5. **No Vendor Lock-In**: Open standardized storage formats enable full export/import of complete cognitive state
+6. **Open Source Sustainability**: Decentralized local deployment avoids centralized service operator control over agent governance rules
+
+All core OS subsystems, Meta Cognitive Database and Identity Anchor layers are engineered with consumer laptop, mobile and lightweight edge hardware efficiency as a hard constraint.
+
+---
+
+# 13 12-Month Engineering Roadmap
+```mermaid
+flowchart LR
+    CUR[Current Implemented Stack] --> A[Complete Runtime Event Kernel Stabilization]
+    A --> B[Formalize Three-Way OS Separation Interface Standards]
+    B --> C[Full Vector Constitution Encoding Pipeline Release]
+    C --> D[Dual Identity Anchor Persistent Storage Layer]
+    D --> E[Neural Cognitive Graph MACDB Extension Prototype]
+    E --> F[Prototype Meta Neural Network Feature Folding Layer]
+    F --> G[Initial Adaptive Cognitive Network Research Build]
+    G --> H[Long-Term Persistent Autonomous Intelligence Reference Build]
+```
+## Phase Breakdown
+1. Near-Term (0–4 months): Stabilize Event Kernel, standardize cross-OS event schemas
+2. Mid-Term (4–8 months): Complete Vector Constitution runtime enforcement & dual Identity Anchor persistence
+3. Long-Term (8–12 months): Deliver first neural cognitive graph prototype, initiate Meta Neural Network research integration
+
+---
+
+# 14 Current Development Status Summary
+| Core Architecture Module | Status Classification | Details |
+| ---- | ---- | ---- |
+| Runtime Coordination OS | ✅ Implemented | Full scheduler, lifecycle, state snapshot logic merged |
+| Cognitive OS | ✅ Implemented | Goal planning, reasoning, meta-cognition core logic complete |
+| Memory OS | ✅ Implemented | Episodic, semantic, pattern storage tiers fully functional |
+| Motivation OS | ✅ Implemented | Reward, curiosity, internal state vector tracking integrated |
+| Meta Cognitive Database Symbolic Layers | ✅ Implemented | Concept graph, episodic storage stable |
+| Runtime State & Service Locator | ✅ Implemented | Standardized context snapshot contract finalized |
+| Runtime Event Kernel | 🟡 In Progress | Core bus functional; audit/replay optimization ongoing |
+| Three-Way OS Event Isolation | 🟡 In Progress | Interface standardization finalization underway |
+| Text-based AI Constitution | ✅ Implemented | Static rule governance active; vector encoding pipeline WIP |
+| Vector Constitution Space | 🟡 In Progress | Embedding encoder under development |
+| Dual Identity Anchor Persistence | 🟡 In Progress | Isolation schema finalized, storage engine in build |
+| Neural Cognitive Graph MACDB Extension | 🔵 Research Direction | Architecture drafted, no engineering prototype |
+| 2D Cognitive CNN Topology | 🔵 Research Direction | Theoretical topology design only |
+| Meta Neural Network & Adaptive Cognitive Network | 🔵 Research Direction | Long-term research scope, no near-term implementation |
+
+---
+
+# 15 Open Source Vision
+## 15.1 Core Community Mission
+Agent 5.0 is released under permissive open licensing to establish a shared, community-maintained standard for local autonomous cognitive operating systems. The project rejects closed, cloud-locked agent architectures controlled by single commercial entities.
+
+## 15.2 Stakeholder Alignment
+1. Independent Open Source Researchers: Fully accessible cognitive OS reference architecture for AGI safety & cognitive science research
+2. Nonprofit Foundations (FUTO, NLnet, Sentient): Local-first privacy-aligned autonomous intelligence stack for grant-funded independent AI research
+3. End Developers: Modular, swappable subsystems to build custom autonomous agents unbound to proprietary LLM platforms
+4. Individual End Users: Self-hostable persistent cognitive intelligence with full ownership of identity and memory data
+
+## 15.3 Final Statement of Purpose
+This project does not aim to build a commercial conversational product or claim artificial general intelligence milestones. Its sole objective is to deliver a transparent, fully open, local-first operating system architecture that enables sustainable, self-governed persistent autonomous AI cognition for global open research communities.
+
+---
+
+# Document Closing Notes
+1. All Mermaid diagrams render natively within GitHub Markdown environments, no external image assets required
+2. Strict separation between implemented, in-progress and research architecture maintained across all chapters
+3. No marketing superlatives, unsubstantiated performance claims or premature capability assertions present
+4. Architecture scope strictly limited to finalized Agent 5.0 core design; no speculative new runtime modules added
